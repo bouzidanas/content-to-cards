@@ -38,7 +38,7 @@ function Cards({markdown, cardTitles}:{markdown: string, cardTitles: string[]}) 
         </div>}
         <h4 className='roboto-medium' style={{transition: "all 0.7s ease-in-out"}}>{cardTitles[currentSlide].toUpperCase()}</h4>
       </div>
-      <RevealSlides ref={slidesRef} plugins={[ReveaMarkdown]} progress={false} controls={false}  margin={0.225} scrollActivationWidth={0} onStateChange={handleOnStateChange} >
+      <RevealSlides ref={slidesRef} plugins={[ReveaMarkdown]} progress={false} controls={false}  margin={0.15} scrollActivationWidth={0} onStateChange={handleOnStateChange} >
         <section data-markdown="" data-background-color="#EBE8DE">
           <script type="text/template">
               {markdown}

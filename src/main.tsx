@@ -8,7 +8,7 @@ const sampleMarkdown = `# **Israel admits "mistake"** of killing civilians on bi
 ---
 **CONTEXT**
 
-A times analysis of drone footage published by the Israeli military on March 3 shows that the target of a strike was
+A times analysis of drone footage published by the Israeli military on March 3 shows that the target of a strike was wheeling a bicycle. This video contains graphic imagery.
 ---
 ## Slide 3`
 
