@@ -73,15 +73,14 @@
 .slide-cont .bottom-nav {
     position: absolute;
     bottom: 30px;
-    left: 60px;
-    width: calc(100% - 65px);
+    left: 62px;
+    width: calc(100% - 67px);
     height: 60px;
     z-index: 100;
     display: flex;
     flex-direction: row-reverse;
     justify-content: end;
     align-items: center;
-    gap: 20px;
 }
 
 .slide-cont .nav .card-tag {
@@ -97,4 +96,8 @@
 
 .slide-cont .nav h4 {
     margin: 0 12px;
+}
+
+.slide-cont .top-nav > h4:nth-child(2) {
+    margin: 0 2px;
 }
