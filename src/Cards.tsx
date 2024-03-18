@@ -1,6 +1,6 @@
 import { RevealSlides, RevealHandle } from 'react-reveal-slides'
 import ReveaMarkdown from 'reveal.js/plugin/markdown/markdown';
-import { PiCaretCircleRightLight, PiCaretCircleLeftLight } from "react-icons/pi";
+import { PiCaretRightBold, PiCaretLeftBold } from "react-icons/pi";
 import Reveal from "reveal.js";
 
 import './Cards.css'
@@ -50,12 +50,14 @@ function Cards({markdown, cardTitles, noBackTitle}:{markdown: string, cardTitles
   return (
     <div className='ctc-font slide-cont' style={{width: "600px", height: "600px"}}>
       <div className="nav top-nav">
-        <button style={{background: "none", border: "none", flex: 0}} onClick={prevSlide}>
-          <PiCaretCircleLeftLight size={45} />
-        </button>
-        {!noBackTitle && cardTitles && currentSlide - 1 >= 0 && <div className='card-tag'>
-          <h4 className='roboto-medium'>{cardTitles[currentSlide - 1].toUpperCase()}</h4>
-        </div>}
+        <div className='card-tag' onClick={prevSlide} style={{cursor: "pointer"}}>
+          <button style={{background: "none", border: "none", flex: 0, padding: "2px 4px 0 4px", cursor: "pointer"}}>
+            <PiCaretLeftBold size={25} />
+          </button>
+          {!noBackTitle && cardTitles && currentSlide - 1 >= 0 && 
+            <h4 className='roboto-medium'>{cardTitles[currentSlide - 1].toUpperCase()}</h4>
+          }
+        </div>
         {cardTitles && <h4 className='roboto-medium'>{cardTitles[currentSlide].toUpperCase()}</h4>}
       </div>
       <RevealSlides ref={slidesRef} plugins={[ReveaMarkdown]} progress={false} controls={false}  margin={0.15} scrollActivationWidth={0} onStateChange={handleOnStateChange} >
@@ -66,12 +68,14 @@ function Cards({markdown, cardTitles, noBackTitle}:{markdown: string, cardTitles
         </section>
       </RevealSlides>
       <div className="nav bottom-nav">
-        <button style={{background: "none", border: "none", flex: 0}} onClick={nextSlide} >
-          <PiCaretCircleRightLight size={45} />
-        </button>
-        {cardTitles && currentSlide + 1 < cardTitles.length && <div className='card-tag'>
-          <h4 className='roboto-medium'>{cardTitles[currentSlide + 1].toUpperCase()}</h4>
-        </div>}
+        <div className='card-tag' onClick={nextSlide} style={{cursor: "pointer"}}>
+          {cardTitles && currentSlide + 1 < cardTitles.length && 
+            <h4 className='roboto-medium'>{cardTitles[currentSlide + 1].toUpperCase()}</h4>
+          }
+          <button style={{background: "none", border: "none", flex: 0, padding: "2px 4px 0 4px", cursor: "pointer"}}>
+            <PiCaretRightBold size={25} />
+          </button>
+        </div>
         <hr style={{borderColor: "black", flex: 1, marginRight: cardTitles ? "14px" : "4px"}}/>
       </div>
     </div>

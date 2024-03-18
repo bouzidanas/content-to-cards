@@ -35,7 +35,6 @@ const ContentToCards = ({rawMarkdown, title, withTitles=true}:{rawMarkdown: stri
         <Cards
         markdown={processedMarkdown}
         cardTitles={withTitles ? cardTitles : undefined}
-        noBackTitle
         />
     )
 }

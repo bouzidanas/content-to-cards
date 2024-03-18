@@ -62,7 +62,7 @@
     position: absolute;
     top: 30px;
     right: 55px;
-    width: calc(100% - 60px);
+    width: calc(100% - 70px);
     height: 60px;
     z-index: 100;
     display: flex;
@@ -74,7 +74,7 @@
     position: absolute;
     bottom: 30px;
     left: 62px;
-    width: calc(100% - 67px);
+    width: calc(100% - 77px);
     height: 60px;
     z-index: 100;
     display: flex;
@@ -88,10 +88,13 @@
     margin-top: -1px;
     padding-top: 2px;
     border-radius: 18px;
-    border: 2px solid #000;
+    border: 2.5px solid #000;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.slide-cont .nav .card-tag:hover {
+    background-color: #00000009;
 }
 
 .slide-cont .nav h4 {
@@ -99,5 +102,5 @@
 }
 
 .slide-cont .top-nav > h4:nth-child(2) {
-    margin: 0 2px;
+    margin: 0 10px;
 }
