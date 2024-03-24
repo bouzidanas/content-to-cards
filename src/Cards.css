@@ -60,7 +60,7 @@
 
 .slide-cont .top-nav {
     position: absolute;
-    top: 30px;
+    top: 20px;
     right: 55px;
     width: calc(100% - 70px);
     height: 60px;
@@ -72,7 +72,7 @@
 
 .slide-cont .bottom-nav {
     position: absolute;
-    bottom: 30px;
+    bottom: 20px;
     left: 62px;
     width: calc(100% - 77px);
     height: 60px;
@@ -86,7 +86,7 @@
 .slide-cont .nav .card-tag {
     height: 31px;
     margin-top: -1px;
-    padding-top: 2px;
+    padding-top: 1px;
     border-radius: 18px;
     border: 2.5px solid #000;
     display: flex;
@@ -99,6 +99,7 @@
 
 .slide-cont .nav h4 {
     margin: 0 12px;
+    margin-bottom: 1px;
 }
 
 .slide-cont .top-nav > h4:nth-child(2) {

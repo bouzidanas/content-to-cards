@@ -6,7 +6,7 @@ import Reveal from "reveal.js";
 import './Cards.css'
 import { useLayoutEffect, useRef, useState } from 'react';
 
-function Cards({markdown, cardTitles, noBackTitle}:{markdown: string, cardTitles?: string[], noBackTitle?: boolean}) {
+function Cards({markdown, cardTitles, noBackTitle, backgroundColor="lightgray"}:{markdown: string, cardTitles?: string[], noBackTitle?: boolean, backgroundColor?: string}) {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const slidesRef = useRef<RevealHandle>(null);
@@ -48,7 +48,7 @@ function Cards({markdown, cardTitles, noBackTitle}:{markdown: string, cardTitles
 
 
   return (
-    <div className='ctc-font slide-cont' style={{width: "600px", height: "600px"}}>
+    <div className='ctc-font slide-cont' style={{width: "600px", height: "600px", minHeight: "600px"}}>
       <div className="nav top-nav">
         <div className='card-tag' onClick={prevSlide} style={{cursor: "pointer"}}>
           <button style={{background: "none", border: "none", flex: 0, padding: "2px 4px 0 4px", cursor: "pointer"}}>
@@ -61,8 +61,8 @@ function Cards({markdown, cardTitles, noBackTitle}:{markdown: string, cardTitles
         {cardTitles && <h4 className='roboto-medium'>{cardTitles[currentSlide].toUpperCase()}</h4>}
       </div>
       <RevealSlides ref={slidesRef} plugins={[ReveaMarkdown]} progress={false} controls={false}  margin={0.15} scrollActivationWidth={0} onStateChange={handleOnStateChange} >
-        <section data-markdown="" data-background-color="#EBE8DE">
-          <script type="text/template">
+        <section data-markdown="" data-background-color={backgroundColor}>
+          <script type="text/template" data-separator-vertical='^\n~~~\n'>
               {markdown}
           </script>
         </section>

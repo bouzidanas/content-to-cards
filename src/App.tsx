@@ -1,4 +1,6 @@
+import { useLayoutEffect, useRef, useState } from 'react';
 import Cards from './Cards.tsx'
+import MarkdownEditor from '@uiw/react-markdown-editor';
 
 const sampleMarkdown = `# **Israel admits "mistake"** of killing civilians on bicycle 
 # **March 3, 2024**
@@ -18,21 +20,41 @@ This video contains graphic imagery.
 
 // const sampleCardTitles = ["card 1", "card 2", "card 3"]
 
-const ContentToCards = ({rawMarkdown, title, withTitles=true}:{rawMarkdown: string, title: string, withTitles?: boolean}) => {
+const ContentToCards = ({rawMarkdown, title, withTitles=true, backgroundColor}:{rawMarkdown: string, title: string, withTitles?: boolean, backgroundColor?: string}) => {
 
     const cardTitles: string[] = [title];
     const markdownLines = rawMarkdown.split('\n');
+
+    let charCount = 0;
     const processedMarkdown = markdownLines.map((line) => {
+        charCount += line.length;
+        console.log(charCount);
+        // check if markdown line contains Image
+        if (line.trim().match(/!\[.*\]\(.*\)/)) {
+            charCount += 100;
+        }
         // if line is markdown subheading
         if (line.trim().startsWith('## ')) {
+            charCount = 0;
             cardTitles.push(line.replace('## ', ''));
             return "---";
+        } 
+        else if (charCount > 580) {
+            if (line.trim().match(/!\[.*\]\(.*\)/)) {
+                charCount = 100;
+            }
+            else {
+                charCount = line.length;
+            }
+            cardTitles.push(cardTitles[cardTitles.length - 1] + ' (cont.)')
+            return "---\n" + line;
         }
         return line;
     }).join('\n');
 
     return (
         <Cards
+        backgroundColor={backgroundColor}
         markdown={processedMarkdown}
         cardTitles={withTitles ? cardTitles : undefined}
         />
@@ -40,11 +62,34 @@ const ContentToCards = ({rawMarkdown, title, withTitles=true}:{rawMarkdown: stri
 }
 
 const App = () => {
+    const [markdown, setMarkdown] = useState(sampleMarkdown);
+
+    const newSlidesKey = useRef(0);
+
+    useLayoutEffect(() => {
+        document.documentElement.setAttribute('data-color-mode', 'light');
+    }, []);
     return (
-        <ContentToCards 
-            rawMarkdown={sampleMarkdown}
-            title='War Crime Chronicles'
-        />
+        <>
+            <MarkdownEditor
+                value={markdown}
+                onChange={(value) => {
+                    setMarkdown((previousMarkdown) => {
+                        if (value !== previousMarkdown) {
+                            newSlidesKey.current += 1;
+                        }
+                        return value;
+                    });
+                }}
+                height='325px'
+            />
+            <ContentToCards 
+                key={newSlidesKey.current}
+                rawMarkdown={markdown}
+                title='War Crime Chronicles'
+                backgroundColor='#f5f5f5'
+            />
+        </>
     )
 }
 
