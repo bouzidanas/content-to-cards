@@ -16,7 +16,7 @@ This video contains graphic imagery.
 
 ## HR2 Violation
 
-### Slide 3`
+### Card 3`
 
 // const sampleCardTitles = ["card 1", "card 2", "card 3"]
 
@@ -54,9 +54,9 @@ const ContentToCards = ({rawMarkdown, title, withTitles=true, backgroundColor}:{
 
     return (
         <Cards
-        backgroundColor={backgroundColor}
-        markdown={processedMarkdown}
-        cardTitles={withTitles ? cardTitles : undefined}
+            backgroundColor={backgroundColor}
+            markdown={processedMarkdown}
+            cardTitles={withTitles ? cardTitles : undefined}
         />
     )
 }
