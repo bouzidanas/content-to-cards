@@ -2,21 +2,34 @@ import { useLayoutEffect, useRef, useState } from 'react';
 import Cards from './Cards.tsx'
 import MarkdownEditor from '@uiw/react-markdown-editor';
 
-const sampleMarkdown = `# **Israel admits "mistake"** of killing civilians on bicycle 
-# **March 3, 2024**
+const sampleMarkdown = `# **AI adoption accelerates** as enterprise PoCs show **productivity gains**
 
-## HR1 Violation
+## INTRO
 
-### **CONTEXT**
+CIOs are increasingly exploiting custom AI stacks and new features in line with business software to automate and streamline business processes — with a few caveats.
 
-A times analysis of drone footage published by the Israeli military on March 3 shows that the target of a strike was wheeling a bicycle. 
-This video contains graphic imagery.
+![article image](https://www.cio.com/wp-content/uploads/2024/04/shutterstock_669226147.jpg?resize=1240%2C697&quality=50&strip=all)
 
-![refuge camp](https://www.reuters.com/resizer/v2/CSV3J3B4SBOC5DJJNK33UYCSOM.jpg?auth=5708a7d4871142e74beafe6b55ed04c59800255ead553479c26c03c6219a3b5b&width=960&quality=80)
+## TESTIMONY
 
-## HR2 Violation
+Like other CIOs, Katrina Redmond has been inundated with opportunities to deploy AI that promise to speed business and operations processes, and optimize workflows. 
+> “Everyone is running around trying to apply this technology that’s moving so fast, but without business outcomes, there’s no point to it. We need to continue to be mindful of business outcomes and apply use cases that make sense.”
 
-### Card 3`
+says Redmond.
+
+## PROOF OF CONCEPTS
+
+To be successful, an AI proof of concept (PoC) project also needs to make good business sense, says CIO Vikram Nafde, CIO at Connecticut-based Webster Bank. 
+
+> *“The cost of implementing and running AI models can be quite high, so you have to be really careful in assessing the business worthiness of AI use cases. This involves rigorous evaluation of potential benefits, risks, and costs associated with each AI initiative to ensure investments are prudent and aligned with our risk-return profile.”*
+
+
+## EARLY RESULTS
+
+At Eaton, a few PoCs are already generating results and they’ve used AI to consolidate information between more than 70 ERP systems globally. 
+
+Leveraging expertise at software developer Palantir Technologies, Redmond’s team developed a model that consolidated and cleansed the data from those systems, then analyzed it to provide insights — and fairly sophisticated recommendations — to decision makers.
+`
 
 // const sampleCardTitles = ["card 1", "card 2", "card 3"]
 
@@ -86,7 +99,7 @@ const App = () => {
             <ContentToCards 
                 key={newSlidesKey.current}
                 rawMarkdown={markdown}
-                title='War Crime Chronicles'
+                title='AI Adoption'
                 backgroundColor='#f5f5f5'
             />
         </>

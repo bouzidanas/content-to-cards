@@ -58,6 +58,14 @@
     margin: 0;
 }
 
+.slide-cont .slides blockquote > p {
+    opacity: 0.8;
+    font-size: 95%;
+    padding-left: 1.7rem;
+    text-align: left;
+    border-left: 8px solid #00000077;
+}
+
 .slide-cont .top-nav {
     position: absolute;
     top: 20px;
