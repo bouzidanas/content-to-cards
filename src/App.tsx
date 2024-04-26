@@ -29,6 +29,8 @@ To be successful, an AI proof of concept (PoC) project also needs to make good b
 At Eaton, a few PoCs are already generating results and they’ve used AI to consolidate information between more than 70 ERP systems globally. 
 
 Leveraging expertise at software developer Palantir Technologies, Redmond’s team developed a model that consolidated and cleansed the data from those systems, then analyzed it to provide insights — and fairly sophisticated recommendations — to decision makers.
+
+full article: [https://www.cio.com/article/2074821/ai-adoption-accelerates-as-enterprise-pocs-show-productivity-gains.html](https://www.cio.com/article/2074821/ai-adoption-accelerates-as-enterprise-pocs-show-productivity-gains.html)
 `
 
 // const sampleCardTitles = ["card 1", "card 2", "card 3"]
@@ -100,7 +102,7 @@ const App = () => {
                 key={newSlidesKey.current}
                 rawMarkdown={markdown}
                 title='AI Adoption'
-                backgroundColor='#f5f5f5'
+                backgroundColor='#eff3f1'
             />
         </>
     )
