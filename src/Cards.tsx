@@ -60,7 +60,7 @@ function Cards({markdown, cardTitles, noBackTitle, backgroundColor="lightgray"}:
         </div>
         {cardTitles && <h4 className='roboto-medium'>{cardTitles[currentSlide].toUpperCase()}</h4>}
       </div>
-      <RevealSlides ref={slidesRef} plugins={[ReveaMarkdown]} progress={false} controls={false}  margin={0.15} scrollActivationWidth={0} onStateChange={handleOnStateChange} >
+      <RevealSlides ref={slidesRef} plugins={[ReveaMarkdown]} progress={false} controls={false}  margin={0.15} scrollActivationWidth={0} onStateChange={handleOnStateChange} keyboard={false} >
         <section data-markdown="" data-background-color={backgroundColor}>
           <script type="text/template" data-separator-vertical='^\n~~~\n'>
               {markdown}
