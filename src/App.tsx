@@ -35,7 +35,7 @@ full article: [https://www.cio.com/article/2074821/ai-adoption-accelerates-as-en
 
 // const sampleCardTitles = ["card 1", "card 2", "card 3"]
 
-const ContentToCards = ({rawMarkdown, title, withTitles=true, backgroundColor}:{rawMarkdown: string, title: string, withTitles?: boolean, backgroundColor?: string}) => {
+const ContentToCards = ({rawMarkdown, title, withTitles=true, backgroundColor, start}:{rawMarkdown: string, title: string, withTitles?: boolean, backgroundColor?: string, start?: number}) => {
 
     const cardTitles: string[] = [title];
     const markdownLines = rawMarkdown.split('\n');
@@ -72,6 +72,7 @@ const ContentToCards = ({rawMarkdown, title, withTitles=true, backgroundColor}:{
             backgroundColor={backgroundColor}
             markdown={processedMarkdown}
             cardTitles={withTitles ? cardTitles : undefined}
+            start={start??0}
         />
     )
 }
@@ -103,6 +104,7 @@ const App = () => {
                 rawMarkdown={markdown}
                 title='AI Adoption'
                 backgroundColor='#eff3f1'
+                start={1}
             />
         </>
     )

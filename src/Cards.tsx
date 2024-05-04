@@ -6,7 +6,7 @@ import Reveal from "reveal.js";
 import './Cards.css'
 import { useLayoutEffect, useRef, useState } from 'react';
 
-function Cards({markdown, cardTitles, noBackTitle, backgroundColor="lightgray"}:{markdown: string, cardTitles?: string[], noBackTitle?: boolean, backgroundColor?: string}) {
+function Cards({markdown, cardTitles, noBackTitle, backgroundColor="lightgray", start=0}:{markdown: string, cardTitles?: string[], noBackTitle?: boolean, backgroundColor?: string, start?: number}) {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const slidesRef = useRef<RevealHandle>(null);
@@ -46,7 +46,6 @@ function Cards({markdown, cardTitles, noBackTitle, backgroundColor="lightgray"}:
     }
   }, [currentSlide]);
 
-
   return (
     <div className='ctc-font slide-cont' style={{width: "600px", height: "600px", minHeight: "600px"}}>
       <div className="nav top-nav">
@@ -60,7 +59,7 @@ function Cards({markdown, cardTitles, noBackTitle, backgroundColor="lightgray"}:
         </div>
         {cardTitles && <h4 className='roboto-medium'>{cardTitles[currentSlide].toUpperCase()}</h4>}
       </div>
-      <RevealSlides ref={slidesRef} plugins={[ReveaMarkdown]} progress={false} controls={false}  margin={0.15} scrollActivationWidth={0} onStateChange={handleOnStateChange} keyboard={false} >
+      <RevealSlides ref={slidesRef} presState={{"indexh": start, "indexv": -1, "indexf": -1, "paused": false, "overview": false }} plugins={[ReveaMarkdown]} progress={false} controls={false}  margin={0.15} scrollActivationWidth={0} onStateChange={handleOnStateChange} keyboard={false} >
         <section data-markdown="" data-background-color={backgroundColor}>
           <script type="text/template" data-separator-vertical='^\n~~~\n'>
               {markdown}
