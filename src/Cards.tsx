@@ -6,13 +6,14 @@ import Reveal from "reveal.js";
 import './Cards.css'
 import { useLayoutEffect, useRef, useState } from 'react';
 
-function Cards({markdown, cardTitles, noBackTitle, backgroundColor="lightgray", start=0}:{markdown: string, cardTitles?: string[], noBackTitle?: boolean, backgroundColor?: string, start?: number}) {
+function Cards({markdown, cardTitles, noBackTitle, backgroundColor="lightgray", start=0, onStateChange}:{markdown: string, cardTitles?: string[], noBackTitle?: boolean, backgroundColor?: string, start?: number, onStateChange?: (state: Reveal.RevealState) => void}) {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const slidesRef = useRef<RevealHandle>(null);
 
   const handleOnStateChange = (state: Reveal.RevealState) => {
     setCurrentSlide(state.indexh);
+    onStateChange && onStateChange(state);
   }
 
   const nextSlide = () => {
