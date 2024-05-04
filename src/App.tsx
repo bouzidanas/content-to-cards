@@ -104,7 +104,6 @@ const App = () => {
                 rawMarkdown={markdown}
                 title='AI Adoption'
                 backgroundColor='#eff3f1'
-                start={1}
             />
         </>
     )
