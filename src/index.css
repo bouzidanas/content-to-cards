@@ -17,6 +17,13 @@ body {
     padding-bottom: 11.3rem;
 }
 
+@media screen and (max-width: 430px) {
+    #root {
+        padding: 2rem 1rem;
+        padding-bottom: 11.3rem;
+    }
+}
+
 .md-editor {
     width: 800px;
     max-width: 90vw;

@@ -47,7 +47,24 @@
     left: 0;
 }
 
-.slide-cont .slides {
+@media screen and (max-width: 640px) {
+    .slide-cont {
+        scale: 0.70;
+        margin-top: -5.5rem;
+    }
+}
+
+@media screen and (max-width: 460px) {
+    .slide-cont {
+        scale: 0.6;
+        margin-top: -7.5rem;
+    }
+}
+@media screen and (max-width: 430px) {
+    .slide-cont {
+        scale: 0.55;
+        margin-top: -8.5rem;
+    }
 }
 
 .slide-cont .slides section {
